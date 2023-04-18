@@ -1,0 +1,31 @@
+<h2>Find Details by Pincode</h2>
+<mat-form-field>
+  <mat-label>Enter Pincode</mat-label>
+  <input [(ngModel)]="pincode" matInput placeholder="Pincode" (keydown.enter)="getDetailsByPincode()">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="getDetailsByPincode()">Search</button>
+<br><br>
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="Country">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Country</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.Country }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="State">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.State }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="District">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>District</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.District }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Locality</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.Name }}</mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<div class="mat-elevation-z8" *ngIf="dataSource">
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+</div>
+<p *ngIf="errorMessage">{{ errorMessage}}</p>
