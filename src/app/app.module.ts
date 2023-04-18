@@ -16,7 +16,8 @@ import { LocationSelector } from './location-selector/location-selector.componen
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
- 
+import { FindByPincodeComponent } from './find-by-pincode/find-by-pincode.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports:      [ 
@@ -37,6 +38,8 @@ import { MatOptionModule } from '@angular/material/core';
   declarations: [
     AppComponent,
     LocationSelector,
+    FindByPincodeComponent,
+    PageNotFoundComponent
    ],
    providers: [
    ],

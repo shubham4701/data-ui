@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LocationSelector } from './location-selector/location-selector.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 const routes: Routes = [
   {path: 'find-by-pincode', component: AppComponent},
   {path: 'find-by-city', component: LocationSelector},
-  {path: '', redirectTo: '/find-by-pincode', pathMatch: 'full'}
+  {path: '', redirectTo: '/find-by-pincode', pathMatch: 'full'},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
